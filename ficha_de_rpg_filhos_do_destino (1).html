@@ -61,6 +61,35 @@
         .glow-gold {
             text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
+        /* Estilos de Impressão / PDF */
+        @media print {
+            header, button, label[title], #toast, #dice-modal, #ultimate-modal, #skill-modal, #weapon-modal, #inventory-modal {
+                display: none !important;
+            }
+            body {
+                background-color: #ffffff !important;
+                color: #000000 !important;
+                padding: 0 !important;
+            }
+            .mythic-card {
+                background: #ffffff !important;
+                border: 1px solid #cccccc !important;
+                color: #000000 !important;
+                box-shadow: none !important;
+                break-inside: avoid;
+            }
+            input, textarea, select {
+                background: transparent !important;
+                color: #000000 !important;
+                border-bottom: 1px solid #999 !important;
+            }
+            .cinzel, h1, h2, h3, h4 {
+                color: #000000 !important;
+            }
+            .text-mythic-gold, .text-mythic-goldLight, .text-amber-400, .text-amber-300 {
+                color: #333333 !important;
+            }
+        }
         /* Custom scrollbar */
         ::-webkit-scrollbar {
             width: 8px;
@@ -121,6 +150,10 @@
                 <button onclick="openDiceModal('Teste Geral', 0)" class="bg-mythic-700 hover:bg-mythic-600 text-mythic-gold border border-mythic-gold/40 px-3 py-1.5 rounded-lg text-sm font-cinzel transition flex items-center space-x-2">
                     <i class="fa-solid fa-dice"></i>
                     <span>Rolar d20</span>
+                </button>
+                <button onclick="exportPDF()" class="bg-red-800 hover:bg-red-700 text-white font-bold px-3 py-1.5 rounded-lg text-sm font-cinzel transition flex items-center space-x-1 shadow-md" title="Baixar como PDF / Imprimir">
+                    <i class="fa-solid fa-file-pdf"></i>
+                    <span class="hidden sm:inline">Baixar PDF</span>
                 </button>
                 <button onclick="manualSave()" class="bg-mythic-gold hover:bg-mythic-goldLight text-black font-bold px-3 py-1.5 rounded-lg text-sm font-cinzel transition flex items-center space-x-1 shadow-md">
                     <i class="fa-solid fa-floppy-disk"></i>
@@ -832,6 +865,11 @@
 
         function manualSave() {
             saveData(true);
+        }
+
+        function exportPDF() {
+            saveData();
+            window.print();
         }
 
         function exportJSON() {
