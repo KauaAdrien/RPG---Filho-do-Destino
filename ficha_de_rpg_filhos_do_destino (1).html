@@ -176,8 +176,24 @@
                     <input type="number" id="semideus-level" value="1" oninput="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded-lg px-3 py-1.5 text-center text-white font-bold focus:outline-none focus:border-mythic-gold">
                 </div>
                 <div>
+                    <label class="block text-xs text-slate-400 mb-1">Armamento (Classe)</label>
+                    <select id="armament-class" onchange="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded-lg px-2 py-1.5 text-center text-mythic-gold font-bold focus:outline-none focus:border-mythic-gold text-xs">
+                        <option value="Espadachim">Espadachim</option>
+                        <option value="Atirador">Atirador</option>
+                        <option value="Lutador">Lutador</option>
+                    </select>
+                </div>
+                <div>
                     <label class="block text-xs text-slate-400 mb-1">Nível Armamento</label>
-                    <input type="number" id="armament-level" value="1" oninput="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded-lg px-3 py-1.5 text-center text-white font-bold focus:outline-none focus:border-mythic-gold">
+                    <select id="armament-level" onchange="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded-lg px-2 py-1.5 text-center text-white font-bold focus:outline-none focus:border-mythic-gold text-xs">
+                        <option value="Novato">Novato</option>
+                        <option value="Iniciante">Iniciante</option>
+                        <option value="Intermediário">Intermediário</option>
+                        <option value="Avançado">Avançado</option>
+                        <option value="Especial">Especial</option>
+                        <option value="Mestre">Mestre</option>
+                        <option value="Grão-Mestre">Grão-Mestre</option>
+                    </select>
                 </div>
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">EXP</label>
@@ -186,10 +202,6 @@
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">Áspis (Defesa)</label>
                     <input type="number" id="aspis-val" value="14" oninput="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded-lg px-3 py-1.5 text-center text-mythic-gold font-bold focus:outline-none focus:border-mythic-gold">
-                </div>
-                <div>
-                    <label class="block text-xs text-slate-400 mb-1">Redução de Dano</label>
-                    <input type="text" id="rd-val" value="-0" oninput="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded-lg px-3 py-1.5 text-center text-white font-bold focus:outline-none focus:border-mythic-gold">
                 </div>
                 <div class="flex items-end">
                     <button onclick="openDiceModal('Áspis / Defesa', 14)" class="w-full bg-mythic-700 hover:bg-mythic-600 border border-mythic-gold/30 text-mythic-gold text-xs font-cinzel py-2 rounded-lg transition">
@@ -329,7 +341,7 @@
             </div>
         </div>
 
-        <!-- 3. ATRIBUTOS E PERÍCIAS -->
+        <!-- 3. ATRIBUTOS E PROFICIÊNCIAS -->
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
             
             <!-- Atributos -->
@@ -348,16 +360,16 @@
                 </div>
             </div>
 
-            <!-- Perícias -->
+            <!-- Proficiências -->
             <div class="lg:col-span-8">
                 <div class="mythic-card p-5">
                     <div class="flex flex-wrap items-center justify-between mb-4 gap-2">
                         <h2 class="cinzel font-bold text-md text-mythic-gold flex items-center">
-                            <i class="fa-solid fa-scroll mr-2"></i> PERÍCIAS DO PERSONAGEM
+                            <i class="fa-solid fa-scroll mr-2"></i> PROFICIÊNCIAS DO PERSONAGEM
                         </h2>
                         <button onclick="openSkillModal()" class="bg-mythic-gold text-black font-bold text-xs px-3 py-1.5 rounded-lg hover:bg-mythic-goldLight transition flex items-center space-x-1">
                             <i class="fa-solid fa-plus"></i>
-                            <span>Nova Perícia</span>
+                            <span>Nova Proficiência</span>
                         </button>
                     </div>
 
@@ -444,6 +456,35 @@
                     </div>
                     <div class="space-y-2" id="passive-abilities-list"></div>
                 </div>
+
+                <!-- CARACTERÍSTICAS FÍSICAS / BIO -->
+                <div class="mythic-card p-5">
+                    <h2 class="cinzel font-bold text-md text-mythic-gold mb-3 flex items-center">
+                        <i class="fa-solid fa-id-card mr-2"></i> CARACTERÍSTICAS FÍSICAS
+                    </h2>
+                    <div class="grid grid-cols-2 sm:grid-cols-3 gap-3">
+                        <div>
+                            <label class="block text-[11px] text-slate-400 mb-1">Idade</label>
+                            <input type="text" id="bio-idade" value="20" oninput="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded px-2.5 py-1 text-white text-xs focus:outline-none focus:border-mythic-gold">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] text-slate-400 mb-1">Cor dos Olhos</label>
+                            <input type="text" id="bio-olhos" value="Cinza" oninput="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded px-2.5 py-1 text-white text-xs focus:outline-none focus:border-mythic-gold">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] text-slate-400 mb-1">Cor da Pele</label>
+                            <input type="text" id="bio-pele" value="Branco" oninput="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded px-2.5 py-1 text-white text-xs focus:outline-none focus:border-mythic-gold">
+                        </div>
+                        <div>
+                            <label class="block text-[11px] text-slate-400 mb-1">Altura</label>
+                            <input type="text" id="bio-altura" value="1,75 m" oninput="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded px-2.5 py-1 text-white text-xs focus:outline-none focus:border-mythic-gold">
+                        </div>
+                        <div class="col-span-2 sm:col-span-2">
+                            <label class="block text-[11px] text-slate-400 mb-1">Cor do Cabelo</label>
+                            <input type="text" id="bio-cabelo" value="Preto com mecha branca" oninput="saveData()" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded px-2.5 py-1 text-white text-xs focus:outline-none focus:border-mythic-gold">
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <!-- Inventário & Detalhes/Notas -->
@@ -467,19 +508,24 @@
 
                 <!-- Inventário -->
                 <div class="mythic-card p-5">
-                    <div class="flex items-center justify-between mb-3">
+                    <div class="flex flex-wrap items-center justify-between mb-3 gap-2">
                         <h2 class="cinzel font-bold text-md text-mythic-gold flex items-center">
                             <i class="fa-solid fa-box-archive mr-2"></i> INVENTÁRIO & EQUIPAMENTOS
                         </h2>
                         <div class="flex items-center space-x-2">
-                            <span class="text-xs text-slate-400">Espaço: <strong id="inventory-space-count" class="text-mythic-gold">0</strong></span>
+                            <div class="flex items-center space-x-1 bg-mythic-900 px-2 py-1 rounded border border-mythic-gold/30 text-xs">
+                                <span class="text-slate-400">Espaço:</span>
+                                <span id="inventory-space-count" class="font-bold text-mythic-gold">0</span>
+                                <span class="text-slate-400">/</span>
+                                <input type="number" id="inventory-max-space" value="11" oninput="saveData(); renderInventory();" class="w-10 bg-mythic-800 text-center font-bold text-white rounded border border-mythic-gold/20 focus:outline-none">
+                            </div>
                             <button onclick="openInventoryModal()" class="bg-mythic-gold text-black font-bold text-xs px-2.5 py-1 rounded hover:bg-mythic-goldLight transition">
                                 <i class="fa-solid fa-plus"></i> + Item
                             </button>
                         </div>
                     </div>
 
-                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-2.5" id="inventory-list">
+                    <div class="space-y-2" id="inventory-list">
                         <!-- Populated by JS -->
                     </div>
                 </div>
@@ -487,8 +533,27 @@
                 <!-- Diário / Anotações -->
                 <div class="mythic-card p-5">
                     <h3 class="cinzel text-xs font-bold text-mythic-gold mb-2"><i class="fa-solid fa-book-open mr-1"></i> ANOTAÇÕES DO MESTRE / DIÁRIO</h3>
-                    <textarea id="notes-text" oninput="saveData()" rows="4" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-mythic-gold resize-none" placeholder="Anotações gerais da campanha..."></textarea>
+                    <textarea id="notes-text" oninput="saveData()" rows="3" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded-lg p-2.5 text-xs text-white focus:outline-none focus:border-mythic-gold resize-none" placeholder="Anotações gerais da campanha..."></textarea>
                 </div>
+            </div>
+        </div>
+
+        <!-- 6. SEÇÃO DE BIOGRAFIA, APARÊNCIA E PASSADO DO PERSONAGEM -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Descrição da Aparência -->
+            <div class="mythic-card p-5">
+                <h2 class="cinzel font-bold text-md text-mythic-gold mb-3 flex items-center">
+                    <i class="fa-solid fa-user-astronaut mr-2"></i> DESCRIÇÃO DA APARÊNCIA
+                </h2>
+                <textarea id="bio-appearance" oninput="saveData()" rows="5" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded-lg p-3 text-xs text-white focus:outline-none focus:border-mythic-gold resize-none leading-relaxed" placeholder="Descreva traços visuais, vestimentas, cicatrizes ou detalhes da aparência física do personagem..."></textarea>
+            </div>
+
+            <!-- História / Passado -->
+            <div class="mythic-card p-5">
+                <h2 class="cinzel font-bold text-md text-mythic-gold mb-3 flex items-center">
+                    <i class="fa-solid fa-hourglass-start mr-2"></i> HISTÓRIA & PASSADO DO PERSONAGEM
+                </h2>
+                <textarea id="bio-backstory" oninput="saveData()" rows="5" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded-lg p-3 text-xs text-white focus:outline-none focus:border-mythic-gold resize-none leading-relaxed" placeholder="Escreva sobre a origem, antecedentes, segredos e o passado de semideus do personagem..."></textarea>
             </div>
         </div>
 
@@ -526,13 +591,13 @@
         </div>
     </div>
 
-    <!-- Modal Perícia -->
+    <!-- Modal Proficiência -->
     <div id="skill-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="mythic-card max-w-sm w-full p-5 relative">
-            <h3 class="cinzel text-lg text-mythic-gold font-bold mb-4">Adicionar Nova Perícia</h3>
+            <h3 class="cinzel text-lg text-mythic-gold font-bold mb-4">Adicionar Nova Proficiência</h3>
             <div class="space-y-3">
                 <div>
-                    <label class="block text-xs text-slate-400 mb-1">Nome da Perícia</label>
+                    <label class="block text-xs text-slate-400 mb-1">Nome da Proficiência</label>
                     <input type="text" id="modal-skill-name" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded px-3 py-2 text-white text-sm">
                 </div>
                 <div>
@@ -587,15 +652,20 @@
     <!-- Inventory Modal -->
     <div id="inventory-modal" class="fixed inset-0 z-50 bg-black/80 backdrop-blur-sm hidden flex items-center justify-center p-4">
         <div class="mythic-card max-w-sm w-full p-5 relative">
-            <h3 class="cinzel text-lg text-mythic-gold font-bold mb-4">Adicionar Item ao Inventário</h3>
+            <h3 class="cinzel text-lg text-mythic-gold font-bold mb-4" id="inv-modal-title">Adicionar Item ao Inventário</h3>
             <div class="space-y-3">
+                <input type="hidden" id="inv-edit-index" value="-1">
                 <div>
                     <label class="block text-xs text-slate-400 mb-1">Nome do Item</label>
                     <input type="text" id="modal-inv-name" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded px-3 py-2 text-white text-sm">
                 </div>
+                <div>
+                    <label class="block text-xs text-slate-400 mb-1">Peso / Espaço Ocupado</label>
+                    <input type="number" step="0.5" id="modal-inv-weight" value="1" class="w-full bg-mythic-900 border border-mythic-gold/30 rounded px-3 py-2 text-white text-sm">
+                </div>
                 <div class="flex space-x-3 pt-2">
                     <button onclick="closeInventoryModal()" class="flex-1 bg-slate-800 hover:bg-slate-700 text-slate-300 py-2 rounded text-xs font-cinzel">Cancelar</button>
-                    <button onclick="saveInventoryItem()" class="flex-1 mythic-gold-gradient text-black font-bold py-2 rounded text-xs cinzel">Adicionar</button>
+                    <button onclick="saveInventoryItem()" class="flex-1 mythic-gold-gradient text-black font-bold py-2 rounded text-xs cinzel">Salvar</button>
                 </div>
             </div>
         </div>
@@ -609,7 +679,8 @@
             campaignName: "O Destino da Calamidade",
             chaleName: "Atena",
             semideusLevel: 1,
-            armamentLevel: 1,
+            armamentClass: "Espadachim",
+            armamentLevel: "Novato",
             expPoints: 8,
             aspisVal: 14,
             rdVal: "-0",
@@ -637,9 +708,10 @@
             bioIdade: "20",
             bioPele: "Branco",
             bioOlhos: "Cinza",
-            bioPeso: "75 kg",
             bioAltura: "1,75 m",
             bioCabelo: "Preto com mecha branca",
+            bioAppearance: "Jovem alto de estrutura atlética. Possui olhos acinzentados penetrantes e uma marcante mecha branca no cabelo escuro. Costuma usar armadura tática decorada com runas do Chalé de Atena.",
+            bioBackstory: "Descendente de Atena, foi treinado desde jovem no combate com armas brancas e táticas de campo. Busca desvendar o segredo por trás do Destino da Calamidade.",
             notesText: "Investigando os segredos do Chalé de Atena e a Calamidade iminente.",
             attributes: {
                 "Força": { val: 2, bonus: 0 },
@@ -650,36 +722,40 @@
                 "Aparência": { val: 2, bonus: 0 }
             },
             skills: [
-                { name: "Armas Brancas", attr: "DES" },
-                { name: "Artes", attr: "INT" },
-                { name: "Atletismo", attr: "DES" },
-                { name: "Atualidades", attr: "INT" },
-                { name: "Ciências", attr: "INT" },
-                { name: "Dirigir", attr: "DES" },
-                { name: "Flerte", attr: "APA" },
-                { name: "Furtividade", attr: "DES" },
-                { name: "História", attr: "INT" },
-                { name: "Improvisar", attr: "DES" },
-                { name: "Iniciativa", attr: "DES" },
-                { name: "Investigação", attr: "INT" },
-                { name: "Luta", attr: "FOR" },
-                { name: "Magia", attr: "INT" },
-                { name: "Medicina", attr: "INT" },
-                { name: "Mentir", attr: "CAR" },
-                { name: "Mira", attr: "DES" },
-                { name: "Parkour", attr: "DES" },
-                { name: "Percepção", attr: "INT" },
-                { name: "Política", attr: "APA" },
-                { name: "Presença", attr: "APA" },
-                { name: "Sobrevivência", attr: "INT" },
-                { name: "Diplomacia", attr: "APA" }
+                { name: "Armas Brancas", attr: "DES", prepared: false },
+                { name: "Artes", attr: "INT", prepared: false },
+                { name: "Atletismo", attr: "DES", prepared: false },
+                { name: "Atualidades", attr: "INT", prepared: false },
+                { name: "Ciências", attr: "INT", prepared: false },
+                { name: "Dirigir", attr: "DES", prepared: false },
+                { name: "Flerte", attr: "APA", prepared: false },
+                { name: "Furtividade", attr: "DES", prepared: false },
+                { name: "História", attr: "INT", prepared: false },
+                { name: "Improvisar", attr: "DES", prepared: false },
+                { name: "Iniciativa", attr: "DES", prepared: false },
+                { name: "Investigação", attr: "INT", prepared: false },
+                { name: "Luta", attr: "FOR", prepared: false },
+                { name: "Magia", attr: "INT", prepared: false },
+                { name: "Medicina", attr: "INT", prepared: false },
+                { name: "Mentir", attr: "CAR", prepared: false },
+                { name: "Mira", attr: "DES", prepared: false },
+                { name: "Parkour", attr: "DES", prepared: false },
+                { name: "Percepção", attr: "INT", prepared: false },
+                { name: "Política", attr: "APA", prepared: false },
+                { name: "Presença", attr: "APA", prepared: false },
+                { name: "Sobrevivência", attr: "INT", prepared: false },
+                { name: "Diplomacia", attr: "APA", prepared: false }
             ],
             weapons: [
                 { name: "Espada Longa", type: "Corpo a Corpo", damage: "1d8 + DES (Corte)", details: "Nível 1 - Arma Principal" },
                 { name: "Adaga Oculta", type: "Corpo a Corpo", damage: "1d4 + DES (Perfuração)", details: "Secundária" }
             ],
+            inventoryMaxSpace: 11,
             inventory: [
-                "Espada Longa", "Luvas reforçadas", "Bússola", "Perderneira"
+                { name: "Espada Longa", weight: 2 },
+                { name: "Luvas reforçadas", weight: 1 },
+                { name: "Bússola", weight: 0.5 },
+                { name: "Perderneira", weight: 0.5 }
             ]
         };
 
@@ -690,7 +766,11 @@
             const saved = localStorage.getItem('filhos_do_destino_cassian');
             if (saved) {
                 try {
-                    state = JSON.parse(saved);
+                    const parsed = JSON.parse(saved);
+                    if (parsed.inventory && parsed.inventory.length > 0 && typeof parsed.inventory[0] === 'string') {
+                        parsed.inventory = parsed.inventory.map(item => ({ name: item, weight: 1 }));
+                    }
+                    state = { ...defaultState, ...parsed };
                 } catch (e) {
                     console.error("Erro ao carregar dados salvos", e);
                 }
@@ -700,7 +780,6 @@
 
         // Save to LocalStorage
         function saveData(showFeedback = false) {
-            // Collect DOM values into state
             const getVal = (id, defaultVal = '') => {
                 const el = document.getElementById(id);
                 return el ? el.value : defaultVal;
@@ -711,7 +790,8 @@
             state.campaignName = getVal('campaign-name');
             state.chaleName = getVal('chale-name');
             state.semideusLevel = getVal('semideus-level', 1);
-            state.armamentLevel = getVal('armament-level', 1);
+            state.armamentClass = getVal('armament-class', 'Espadachim');
+            state.armamentLevel = getVal('armament-level', 'Novato');
             state.expPoints = getVal('exp-points', 0);
             state.aspisVal = getVal('aspis-val', 10);
             state.rdVal = getVal('rd-val', "-0");
@@ -733,6 +813,16 @@
 
             state.humanidadeVal = getVal('humanidade-slider', 0);
             state.notesText = getVal('notes-text');
+            state.inventoryMaxSpace = parseFloat(getVal('inventory-max-space', 11));
+
+            // Novas Características Físicas e Biografia
+            state.bioIdade = getVal('bio-idade');
+            state.bioOlhos = getVal('bio-olhos');
+            state.bioPele = getVal('bio-pele');
+            state.bioAltura = getVal('bio-altura');
+            state.bioCabelo = getVal('bio-cabelo');
+            state.bioAppearance = getVal('bio-appearance');
+            state.bioBackstory = getVal('bio-backstory');
 
             localStorage.setItem('filhos_do_destino_cassian', JSON.stringify(state));
             if (showFeedback) {
@@ -873,6 +963,7 @@
         function updateAttr(key, field, val) {
             state.attributes[key][field] = parseInt(val || 0);
             saveData();
+            renderSkills(); // Recalcula proficiências ao alterar bônus ou valor de atributo
         }
 
         function addNewAttributePrompt() {
@@ -883,6 +974,7 @@
                     state.attributes[formatted] = { val: 1, bonus: 0 };
                     saveData();
                     renderAttributes();
+                    renderSkills();
                 }
             }
         }
@@ -892,21 +984,37 @@
                 delete state.attributes[key];
                 saveData();
                 renderAttributes();
+                renderSkills();
             }
         }
 
-        // Skills Logic
+        // Skills (Proficiências) Logic
+        function findAttributeObject(attrKey) {
+            const map = {
+                'DES': 'Destreza',
+                'INT': 'Inteligência',
+                'FOR': 'Força',
+                'CAR': 'Carisma',
+                'APA': 'Aparência',
+                'VIG': 'Vigor'
+            };
+            const fullName = map[attrKey] || attrKey;
+            return state.attributes[fullName] || state.attributes[attrKey] || { val: 0, bonus: 0 };
+        }
+
         function renderSkills() {
             const container = document.getElementById('skills-container');
             if (!container) return;
             container.innerHTML = '';
 
             state.skills.forEach((skill, index) => {
-                const attrObj = state.attributes[skill.attr] || { val: 0, bonus: 0 };
-                const totalMod = attrObj.val + attrObj.bonus;
+                const attrObj = findAttributeObject(skill.attr);
+                const isPrepared = !!skill.prepared;
+                const preparedBonus = isPrepared ? 5 : 0;
+                const totalMod = attrObj.val + attrObj.bonus + preparedBonus;
 
                 const div = document.createElement('div');
-                div.className = "bg-mythic-900/60 border border-mythic-gold/20 rounded-lg p-2 flex items-center justify-between text-xs";
+                div.className = `bg-mythic-900/60 border ${isPrepared ? 'border-mythic-gold/70 bg-mythic-700/30' : 'border-mythic-gold/20'} rounded-lg p-2 flex items-center justify-between text-xs transition-all`;
                 div.innerHTML = `
                     <div class="flex items-center space-x-2">
                         <button onclick="removeSkill(${index})" class="text-slate-500 hover:text-red-400 text-[10px]"><i class="fa-solid fa-xmark"></i></button>
@@ -914,14 +1022,24 @@
                         <span class="bg-mythic-800 text-mythic-gold px-1.5 py-0.5 rounded text-[10px] font-bold border border-mythic-gold/20">${skill.attr}</span>
                     </div>
                     <div class="flex items-center space-x-2">
-                        <span class="text-mythic-gold font-bold">${totalMod >= 0 ? '+' + totalMod : totalMod}</span>
-                        <button onclick="openDiceModal('${skill.name} (${skill.attr})', ${totalMod})" class="bg-mythic-800 hover:bg-mythic-700 text-mythic-gold p-1.5 rounded border border-mythic-gold/30">
+                        <label class="flex items-center space-x-1 cursor-pointer bg-mythic-800/80 px-1.5 py-0.5 rounded border border-mythic-gold/20 text-[10px] text-slate-300 hover:text-mythic-gold" title="Marcar como Preparada (+5 Bônus)">
+                            <input type="checkbox" ${isPrepared ? 'checked' : ''} onchange="toggleSkillPrepared(${index}, this.checked)" class="accent-mythic-gold text-xs">
+                            <span class="${isPrepared ? 'text-mythic-gold font-bold' : ''}">Prep (+5)</span>
+                        </label>
+                        <span class="text-mythic-gold font-bold text-sm min-w-[24px] text-right">${totalMod >= 0 ? '+' + totalMod : totalMod}</span>
+                        <button onclick="openDiceModal('${skill.name} (${skill.attr}${isPrepared ? ' - Preparada' : ''})', ${totalMod})" class="bg-mythic-800 hover:bg-mythic-700 text-mythic-gold p-1.5 rounded border border-mythic-gold/30">
                             <i class="fa-solid fa-dice"></i>
                         </button>
                     </div>
                 `;
                 container.appendChild(div);
             });
+        }
+
+        function toggleSkillPrepared(index, checked) {
+            state.skills[index].prepared = checked;
+            saveData();
+            renderSkills();
         }
 
         function removeSkill(index) {
@@ -940,7 +1058,7 @@
             const name = document.getElementById('modal-skill-name').value.trim();
             const attr = document.getElementById('modal-skill-attr').value;
             if (name) {
-                state.skills.push({ name, attr });
+                state.skills.push({ name, attr, prepared: false });
                 saveData();
                 renderSkills();
                 closeSkillModal();
@@ -1203,20 +1321,50 @@
             if (!container) return;
             container.innerHTML = '';
 
-            if (countEl) countEl.innerText = state.inventory.length;
+            let totalWeight = 0;
+            state.inventory.forEach(item => {
+                totalWeight += parseFloat(item.weight || 0);
+            });
+
+            const maxSpace = state.inventoryMaxSpace || 11;
+            if (countEl) {
+                countEl.innerText = totalWeight;
+                if (totalWeight > maxSpace) {
+                    countEl.className = "font-bold text-red-400 animate-pulse";
+                } else {
+                    countEl.className = "font-bold text-mythic-gold";
+                }
+            }
 
             state.inventory.forEach((item, i) => {
                 const div = document.createElement('div');
-                div.className = "bg-mythic-900 border border-mythic-gold/20 rounded px-2.5 py-1.5 flex items-center justify-between text-xs";
+                div.className = "bg-mythic-900 border border-mythic-gold/20 rounded px-3 py-1.5 flex items-center justify-between text-xs";
                 div.innerHTML = `
-                    <input type="text" value="${item}" onchange="state.inventory[${i}] = this.value; saveData();" class="bg-transparent border-none w-full focus:outline-none text-slate-200 text-xs">
-                    <button onclick="removeInventoryItem(${i})" class="text-slate-500 hover:text-red-400 ml-1 text-xs"><i class="fa-solid fa-trash"></i></button>
+                    <div class="flex items-center space-x-2 flex-1 mr-2">
+                        <span class="text-slate-200 font-medium">${item.name}</span>
+                        <span class="bg-mythic-800 text-mythic-gold text-[10px] px-1.5 py-0.5 rounded border border-mythic-gold/20 font-mono">${item.weight} esp.</span>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="openInventoryModal(${i})" class="text-slate-400 hover:text-mythic-gold text-xs"><i class="fa-solid fa-pen"></i></button>
+                        <button onclick="removeInventoryItem(${i})" class="text-slate-400 hover:text-red-400 text-xs"><i class="fa-solid fa-trash"></i></button>
+                    </div>
                 `;
                 container.appendChild(div);
             });
         }
 
-        function openInventoryModal() {
+        function openInventoryModal(editIndex = -1) {
+            document.getElementById('inv-edit-index').value = editIndex;
+            if (editIndex >= 0) {
+                const item = state.inventory[editIndex];
+                document.getElementById('inv-modal-title').innerText = "Editar Item";
+                document.getElementById('modal-inv-name').value = item.name;
+                document.getElementById('modal-inv-weight').value = item.weight;
+            } else {
+                document.getElementById('inv-modal-title').innerText = "Adicionar Item ao Inventário";
+                document.getElementById('modal-inv-name').value = '';
+                document.getElementById('modal-inv-weight').value = 1;
+            }
             document.getElementById('inventory-modal').classList.remove('hidden');
         }
 
@@ -1225,14 +1373,23 @@
         }
 
         function saveInventoryItem() {
+            const idx = parseInt(document.getElementById('inv-edit-index').value);
             const name = document.getElementById('modal-inv-name').value.trim();
-            if (name) {
-                state.inventory.push(name);
-                saveData();
-                renderInventory();
-                closeInventoryModal();
-                document.getElementById('modal-inv-name').value = '';
+            const weight = parseFloat(document.getElementById('modal-inv-weight').value || 1);
+
+            if (!name) return;
+
+            const itemObj = { name, weight };
+
+            if (idx >= 0) {
+                state.inventory[idx] = itemObj;
+            } else {
+                state.inventory.push(itemObj);
             }
+
+            saveData();
+            renderInventory();
+            closeInventoryModal();
         }
 
         function removeInventoryItem(index) {
@@ -1288,10 +1445,12 @@
             setVal('campaign-name', state.campaignName);
             setVal('chale-name', state.chaleName);
             setVal('semideus-level', state.semideusLevel);
-            setVal('armament-level', state.armamentLevel);
+            setVal('armament-class', state.armamentClass || 'Espadachim');
+            setVal('armament-level', state.armamentLevel || 'Novato');
             setVal('exp-points', state.expPoints);
-            setVal('aspis-val', state.aspisVal);
+            setVal('aspisVal', state.aspisVal);
             setVal('rd-val', state.rdVal);
+            setVal('inventory-max-space', state.inventoryMaxSpace || 11);
 
             setVal('hp-max', state.hpMax);
             setVal('hp-temp', state.hpTemp);
@@ -1310,6 +1469,15 @@
 
             setVal('humanidade-slider', state.humanidadeVal || 0);
             setVal('notes-text', state.notesText || '');
+
+            // Novas Características Físicas e Biografia
+            setVal('bio-idade', state.bioIdade || '');
+            setVal('bio-olhos', state.bioOlhos || '');
+            setVal('bio-pele', state.bioPele || '');
+            setVal('bio-altura', state.bioAltura || '');
+            setVal('bio-cabelo', state.bioCabelo || '');
+            setVal('bio-appearance', state.bioAppearance || '');
+            setVal('bio-backstory', state.bioBackstory || '');
 
             updateBars();
             updateHumanidade();
